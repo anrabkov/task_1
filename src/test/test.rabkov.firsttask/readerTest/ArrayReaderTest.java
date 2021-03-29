@@ -1,6 +1,6 @@
 package readerTest;
 
-import exemptions.FileException;
+import exception.FileException;
 import org.junit.Test;
 import org.testng.Assert;
 import reader.ArrayReader;

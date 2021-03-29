@@ -1,4 +1,4 @@
-package exemptions;
+package exception;
 
 public class FileException extends Exception {
     public FileException() {

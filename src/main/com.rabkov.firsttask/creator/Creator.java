@@ -1,7 +1,7 @@
 package creator;
 
 import entity.ArrayEntity;
-import exemptions.FileException;
+import exception.FileException;
 import parser.ArrayParser;
 import reader.ArrayReader;
 

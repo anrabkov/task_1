@@ -2,7 +2,7 @@ package service.impl;
 
 import entity.ArrayEntity;
 import service.ArraySortService;
-import exemptions.ArrayException;
+import exception.ArrayException;
 
 public class ArraySortServiceImplement implements ArraySortService {
 

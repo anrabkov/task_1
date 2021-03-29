@@ -1,4 +1,4 @@
-package exemptions;
+package exception;
 
 public class ArrayException extends Exception {
     public ArrayException() {

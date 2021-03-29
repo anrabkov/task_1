@@ -1,7 +1,7 @@
 package service;
 
 import entity.ArrayEntity;
-import exemptions.ArrayException;
+import exception.ArrayException;
 
 public interface ArrayService {
     public int searchMinElementOfArray(ArrayEntity entity) throws ArrayException;

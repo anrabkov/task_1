@@ -1,11 +1,10 @@
 package service.impl;
 
 import entity.ArrayEntity;
-import exemptions.ArrayException;
+import exception.ArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import service.ArrayService;
 import service.ArraySortService;
 
 public class ArraySortServiceImplementTest {

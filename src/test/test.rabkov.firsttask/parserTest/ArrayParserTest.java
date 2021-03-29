@@ -1,7 +1,7 @@
 package parserTest;
 
 import entity.ArrayEntity;
-import exemptions.FileException;
+import exception.FileException;
 import org.junit.Test;
 import parser.ArrayParser;
 

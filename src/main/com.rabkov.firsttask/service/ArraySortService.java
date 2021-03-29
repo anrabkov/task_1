@@ -1,7 +1,7 @@
 package service;
 
 import entity.ArrayEntity;
-import exemptions.ArrayException;
+import exception.ArrayException;
 
 public interface ArraySortService {
     ArrayEntity bubbleSort(ArrayEntity entity) throws ArrayException;

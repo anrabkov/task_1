@@ -1,6 +1,6 @@
 package reader;
 
-import exemptions.FileException;
+import exception.FileException;
 
 import java.io.BufferedReader;
 import java.io.File;
