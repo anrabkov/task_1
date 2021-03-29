@@ -9,7 +9,7 @@ import static java.util.Arrays.stream;
 
 public class ArrayParser {
 
-    private final Pattern pattern = Pattern.compile("(-?\\d+, )+-?\\d+");
+    private final Pattern pattern = Pattern.compile("(-?\\d+");
 
     public ArrayEntity parse(List<String> list) {
         int[] array = list.stream().
