@@ -1,9 +1,9 @@
 package parserTest;
 
-import entity.ArrayEntity;
-import exception.FileException;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.exception.FileException;
 import org.junit.Test;
-import parser.ArrayParser;
+import com.rabkov.firsttask.parser.ArrayParser;
 
 import java.util.ArrayList;
 import java.util.List;

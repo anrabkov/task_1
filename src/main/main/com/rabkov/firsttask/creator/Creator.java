@@ -1,9 +1,9 @@
-package creator;
+package com.rabkov.firsttask.creator;
 
-import entity.ArrayEntity;
-import exception.FileException;
-import parser.ArrayParser;
-import reader.ArrayReader;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.exception.FileException;
+import com.rabkov.firsttask.parser.ArrayParser;
+import com.rabkov.firsttask.reader.ArrayReader;
 
 import java.util.List;
 

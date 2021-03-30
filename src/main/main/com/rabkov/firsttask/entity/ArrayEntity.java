@@ -1,4 +1,4 @@
-package entity;
+package com.rabkov.firsttask.entity;
 
 import java.util.Arrays;
 

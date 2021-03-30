@@ -1,11 +1,11 @@
-package service.impl;
+package com.rabkov.firsttask.service.impl;
 
-import entity.ArrayEntity;
-import exception.ArrayException;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.exception.ArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import service.ArraySortService;
+import com.rabkov.firsttask.service.ArraySortService;
 
 public class ArraySortServiceImplementTest {
     private ArrayEntity entity;

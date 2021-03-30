@@ -1,11 +1,11 @@
-package service.impl;
+package com.rabkov.firsttask.service.impl;
 
-import entity.ArrayEntity;
-import exception.ArrayException;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.exception.ArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import service.ArrayService;
+import com.rabkov.firsttask.service.ArrayService;
 
 public class ArrayServiceImplementTest {
 
@@ -43,24 +43,24 @@ public class ArrayServiceImplementTest {
     }
 
     @Test
-    public void foundAverageValueOfArray() throws ArrayException {
-        double actual = service.foundAverageValueOfArray(entity);
+    public void searchAverageValueOfArray() throws ArrayException {
+        double actual = service.searchAverageValueOfArray(entity);
         double expected = 2.25;
 
         Assert.assertEquals(actual, expected);
     }
 
     @Test
-    public void searchQuantityOfPositiveNumbersOfArray() throws ArrayException {
-        int actual = service.searchQuantityOfPositiveNumbersOfArray(entity);
+    public void searchQuantityPositiveNumbersOfArray() throws ArrayException {
+        int actual = service.searchQuantityPositiveNumbersOfArray(entity);
         int expected = 3;
 
         Assert.assertEquals(actual, expected);
     }
 
     @Test
-    public void searchQuantityOfNegativeNumbersOfArray() throws ArrayException {
-        int actual = service.searchQuantityOfNegativeNumbersOfArray(entity);
+    public void searchQuantityNegativeNumbersOfArray() throws ArrayException {
+        int actual = service.searchQuantityNegativeNumbersOfArray(entity);
         int expected = 0;
 
         Assert.assertEquals(actual, expected);

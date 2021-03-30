@@ -1,8 +1,8 @@
-package service.impl;
+package com.rabkov.firsttask.service.impl;
 
-import entity.ArrayEntity;
-import service.ArraySortService;
-import exception.ArrayException;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.service.ArraySortService;
+import com.rabkov.firsttask.exception.ArrayException;
 
 public class ArraySortServiceImplement implements ArraySortService {
 
@@ -43,6 +43,7 @@ public class ArraySortServiceImplement implements ArraySortService {
     @Override
     public ArrayEntity mergeSort(ArrayEntity entity) throws ArrayException {
         verificationArray(entity);
+
         return null;
     }
 

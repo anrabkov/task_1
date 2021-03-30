@@ -1,7 +1,7 @@
-package service;
+package com.rabkov.firsttask.service;
 
-import entity.ArrayEntity;
-import exception.ArrayException;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.exception.ArrayException;
 
 public interface ArraySortService {
     ArrayEntity bubbleSort(ArrayEntity entity) throws ArrayException;

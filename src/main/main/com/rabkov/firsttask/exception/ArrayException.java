@@ -1,4 +1,4 @@
-package exception;
+package com.rabkov.firsttask.exception;
 
 public class ArrayException extends Exception {
     public ArrayException() {

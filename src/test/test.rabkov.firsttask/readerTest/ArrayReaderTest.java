@@ -1,10 +1,12 @@
 package readerTest;
 
-import exception.FileException;
+import com.rabkov.firsttask.exception.FileException;
 import org.junit.Test;
 import org.testng.Assert;
-import reader.ArrayReader;
+import com.rabkov.firsttask.reader.ArrayReader;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +20,21 @@ public class ArrayReaderTest {
 
     @Test
     public void fileNameNullTest() {
-        Assert.assertThrows(FileException.class, () -> reader.readFromFile(null));
+        Assert.assertThrows(FileException.class,
+                () -> reader.readFromFile(null));
     }
 
     @Test
     public void fileNotFoundTest() {
-        assertThrows(FileException.class, () -> reader.readFromFile("notExitingFile"));
+        Assert.assertThrows(FileException.class,
+                () -> reader.readFromFile("notExitingFile"));
     }
 
 
     @Test
     public void emptyFileTest() {
-        Assert.assertThrows(FileException.class, () -> reader.readFromFile("emptyFile"));
+        Assert.assertThrows(FileException.class,
+                () -> reader.readFromFile("emptyFile"));
     }
 
 
@@ -40,11 +45,7 @@ public class ArrayReaderTest {
         actual.add("g, 15, 50 , 47");
         actual.add("14, 47, -10, 2");
 
-        Assert.assertEquals(reader.readFromFile(findPath("FileWithArrayLines")), actual);
-    }
-
-    private String findPath(String fileName) {
-        return requireNonNull(ArrayReaderTest.class.getClassLoader().getResource(fileName)).getFile();
+        assertEquals(reader.readFromFile((new File("Arrays").getAbsolutePath())), actual);
     }
 
 }

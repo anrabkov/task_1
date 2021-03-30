@@ -1,4 +1,4 @@
-package exception;
+package com.rabkov.firsttask.exception;
 
 public class FileException extends Exception {
     public FileException() {

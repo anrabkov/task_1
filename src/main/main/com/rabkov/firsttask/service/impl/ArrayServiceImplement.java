@@ -1,11 +1,11 @@
-package service.impl;
+package com.rabkov.firsttask.service.impl;
 
-import entity.ArrayEntity;
+import com.rabkov.firsttask.entity.ArrayEntity;
+import com.rabkov.firsttask.service.ArrayService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import service.ArrayService;
-import exception.ArrayException;
+import com.rabkov.firsttask.exception.ArrayException;
 
 public class ArrayServiceImplement implements ArrayService {
 
@@ -52,7 +52,7 @@ public class ArrayServiceImplement implements ArrayService {
     }
 
     @Override
-    public double foundAverageValueOfArray(ArrayEntity entity) throws ArrayException {
+    public double searchAverageValueOfArray(ArrayEntity entity) throws ArrayException {
         verificationArray(entity);
         int[] array = entity.getArray();
         long sum = 0;
@@ -65,7 +65,7 @@ public class ArrayServiceImplement implements ArrayService {
     }
 
     @Override
-    public int searchQuantityOfPositiveNumbersOfArray(ArrayEntity entity) throws ArrayException {
+    public int searchQuantityPositiveNumbersOfArray(ArrayEntity entity) throws ArrayException {
         verificationArray(entity);
         int[] array = entity.getArray();
         int quantity = 0;
@@ -74,11 +74,12 @@ public class ArrayServiceImplement implements ArrayService {
                 quantity++;
             }
         }
+        logger.log(Level.INFO, "Number of positive array elements  = " + quantity);
         return quantity;
     }
 
     @Override
-    public int searchQuantityOfNegativeNumbersOfArray(ArrayEntity entity) throws ArrayException {
+    public int searchQuantityNegativeNumbersOfArray(ArrayEntity entity) throws ArrayException {
         verificationArray(entity);
         int[] array = entity.getArray();
         int quantity = 0;
@@ -87,11 +88,12 @@ public class ArrayServiceImplement implements ArrayService {
                 quantity++;
             }
         }
+        logger.log(Level.INFO, "Number of negative array elements  = " + quantity);
         return quantity;
     }
 
     @Override
-    public int[] changeElementsOfArray(ArrayEntity entity) throws ArrayException {
+    public ArrayEntity changeElementsOfArray(ArrayEntity entity) throws ArrayException {
         verificationArray(entity);
         int[] array = entity.getArray();
         for (int i = 0; i < array.length; i++) {
@@ -99,12 +101,12 @@ public class ArrayServiceImplement implements ArrayService {
                 array[i] = 1;
             }
         }
-        return array;
+        logger.log(Level.INFO, "Array elements equal to 0 have been replaced " +
+                "with an element equal to 1");
+        return new ArrayEntity(array);
     }
 
-    private void verificationArray(ArrayEntity entity) throws ArrayException {
-        if (entity == null || entity.getArray().length == 0) {
-            throw new ArrayException("The array is empty or equal to null");
-        }
+    private boolean verificationArray(ArrayEntity entity) throws ArrayException {
+        return entity == null || entity.getArray().length == 0;
     }
 }
