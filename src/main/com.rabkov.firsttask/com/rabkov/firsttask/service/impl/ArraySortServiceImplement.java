@@ -3,12 +3,18 @@ package com.rabkov.firsttask.service.impl;
 import com.rabkov.firsttask.entity.ArrayEntity;
 import com.rabkov.firsttask.service.ArraySortService;
 import com.rabkov.firsttask.exception.ArrayException;
+import com.rabkov.firsttask.validator.ArrayValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArraySortServiceImplement implements ArraySortService {
 
+    private static final ArrayValidator validator = new ArrayValidator();
+    Logger logger = LogManager.getLogger(ArraySortServiceImplement.class);
+
     @Override
     public ArrayEntity bubbleSort(ArrayEntity entity) throws ArrayException {
-        verificationArray(entity);
+        validator.validate(entity);
         int[] array = entity.getArray();
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - 1; j++) {
@@ -19,13 +25,14 @@ public class ArraySortServiceImplement implements ArraySortService {
                 }
             }
         }
+        logger.info("Array has sorted by bubbleSort successfully");
         return new ArrayEntity(array);
     }
 
 
     @Override
     public ArrayEntity insertionSort(ArrayEntity entity) throws ArrayException {
-        verificationArray(entity);
+        validator.validate(entity);
         int[] array = entity.getArray();
         for (int i = 1; i < array.length; i++) {
             int value = array[i];
@@ -36,21 +43,17 @@ public class ArraySortServiceImplement implements ArraySortService {
             }
             array[position + 1] = value;
         }
+        logger.info("Array has sorted by insertionSort successfully");
+
         return new ArrayEntity(array);
     }
 
 
     @Override
     public ArrayEntity mergeSort(ArrayEntity entity) throws ArrayException {
-        verificationArray(entity);
+        validator.validate(entity);
 
         return null;
-    }
-
-    private void verificationArray(ArrayEntity entity) throws ArrayException {
-        if (entity == null || entity.getArray().length == 0) {
-            throw new ArrayException("The array is empty or equal to null");
-        }
     }
 
 

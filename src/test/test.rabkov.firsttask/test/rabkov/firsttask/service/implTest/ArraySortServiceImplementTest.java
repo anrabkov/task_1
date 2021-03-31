@@ -1,7 +1,8 @@
-package com.rabkov.firsttask.service.impl;
+package test.rabkov.firsttask.service.implTest;
 
 import com.rabkov.firsttask.entity.ArrayEntity;
 import com.rabkov.firsttask.exception.ArrayException;
+import com.rabkov.firsttask.service.impl.ArraySortServiceImplement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

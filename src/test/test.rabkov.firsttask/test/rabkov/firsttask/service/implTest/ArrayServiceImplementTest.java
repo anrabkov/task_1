@@ -1,7 +1,8 @@
-package com.rabkov.firsttask.service.impl;
+package test.rabkov.firsttask.service.implTest;
 
 import com.rabkov.firsttask.entity.ArrayEntity;
 import com.rabkov.firsttask.exception.ArrayException;
+import com.rabkov.firsttask.service.impl.ArrayServiceImplement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -68,8 +69,8 @@ public class ArrayServiceImplementTest {
 
     @Test
     public void changeElementsOfArray() throws ArrayException {
-        String actual = entity.toString();
-        String expected = "array: {[5, 1, 3, 0]}";
+        String actual = service.changeElementsOfArray(entity).toString();
+        String expected = "array: {[5, 1, 3, 1]}";
 
         Assert.assertEquals(actual, expected);
 
