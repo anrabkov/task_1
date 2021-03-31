@@ -11,13 +11,15 @@ public class ArrayValidator {
 
     public boolean validate(ArrayEntity entity) throws ArrayException {
         int[] array = entity.getArray();
-        if (array != null && array.length > 0) {
+        if ((entity != null || array != null) && array.length > 0) {
             logger.info("The array was checked for null and for empty");
             return true;
-        } else {
-            if (array == null) throw new ArrayException("Array is equal to null");
-            if (array.length < 0) throw new ArrayException("Array is empty or equal to null");
-            throw new ArrayException();
         }
+        throw new ArrayException();
+//        } else {
+//            if (entity.getArray() == null) throw new ArrayException("Array is equal to null");
+//            if (array.length < 0) throw new ArrayException("Array is empty");
+//            if (entity == null) throw new ArrayException("ArrayEntity == null");
+//           throw new
     }
 }

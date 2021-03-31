@@ -34,5 +34,47 @@ public class ArraySortServiceImplementTest {
         Assert.assertEquals(actual, expected);
     }
 
+    @Test
+    void mergeSor() throws ArrayException {
+        ArrayEntity newEntity = service.mergeSort(entity);
+        int[] actualArray = newEntity.getArray();
+        int[] expectedArray = new int[]{1, 2, 5, 8};
+        Assert.assertEquals(actualArray, expectedArray);
+    }
+
+
+    @Test
+    void bubbleNullTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.bubbleSort(new ArrayEntity(null)));
+
+    }
+
+    @Test
+    void insertNullTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.insertionSort(new ArrayEntity(null)));
+    }
+
+    @Test
+    void mergeNullTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.mergeSort(new ArrayEntity(null)));
+    }
+
+
+    @Test
+    void bubbleSortEmptyArrayTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.bubbleSort(new ArrayEntity()));
+    }
+
+    @Test
+    void insertSortEmptyArrayTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.insertionSort(new ArrayEntity()));
+    }
+
+
+    @Test
+    void mergeSortEmptyArrayTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.mergeSort(new ArrayEntity()));
+    }
+
 
 }

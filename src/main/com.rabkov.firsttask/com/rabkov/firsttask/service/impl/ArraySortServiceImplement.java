@@ -51,10 +51,53 @@ public class ArraySortServiceImplement implements ArraySortService {
 
     @Override
     public ArrayEntity mergeSort(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
 
-        return null;
+        validator.validate(entity);
+        int[] arrayToSort = entity.getArray();
+        mergeSort(arrayToSort, arrayToSort.length);
+        logger.info("Array has sorted by merge sort");
+        return new ArrayEntity(arrayToSort);
     }
 
+    private void mergeSort(int[] array, int arrayLength) {
+        if (arrayLength < 2) {
+            return;
+        }
+        int middle = arrayLength / 2;
+        int[] leftArray = new int[middle];
+        int[] rightArray = new int[arrayLength - middle];
+        int k = 0;
+        for (int i = 0; i < arrayLength; ++i) {
+            if (i < middle) {
+                leftArray[i] = array[i];
+            } else {
+                rightArray[k] = array[i];
+                k++;
+            }
+        }
+
+        mergeSort(leftArray, middle);
+        mergeSort(rightArray, arrayLength - middle);
+        merge(leftArray, rightArray, array, middle, arrayLength - middle);
+    }
+
+    private void merge(int[] leftArray, int[] rightArray, int[] array, int leftLength, int rightLength) {
+        int i = 0;
+        int l = 0;
+        int r = 0;
+        while (l < leftLength && r < rightLength) {
+            if (leftArray[l] < rightArray[r]) {
+                array[i++] = leftArray[l++];
+            } else {
+                array[i++] = rightArray[r++];
+            }
+        }
+        while (l < leftLength) {
+            array[i++] = leftArray[l++];
+        }
+        while (r < rightLength) {
+            array[i++] = rightArray[r++];
+        }
+    }
 
 }

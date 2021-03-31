@@ -1,33 +1,31 @@
 package test.rabkov.firsttask.parserTest;
 
 import com.rabkov.firsttask.exception.FileException;
+import com.rabkov.firsttask.reader.ArrayReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import com.rabkov.firsttask.stringParser.StringParser;
 import org.testng.Assert;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
-
 public class ArrayParserTest {
+
     private final StringParser stringParser = new StringParser();
+    static Logger logger = LogManager.getLogger(ArrayParserTest.class);
+
 
     @Test
     public void parseTest() throws FileException {
-        List<String> stringList = new ArrayList<>();
-        stringList.add("1  4  0  0");
-        stringList.add("g  15  50  47");
-        stringList.add("14  47  -10  2");
+        String string = "1 5 8 2";
+        int[] expectedArray = new int[]{1, 5, 8, 2};
+        int[] actualArray = stringParser.parse(string);
 
-
-        List<Integer> actualList = stringParser.parse("1 2 5");
-        List<Integer> expectedList = new ArrayList<>();
-        expectedList.add(1);
-        expectedList.add(2);
-        expectedList.add(5);
-
-        Assert.assertEquals(actualList, expectedList);
+        Assert.assertEquals(actualArray, expectedArray);
     }
 
 

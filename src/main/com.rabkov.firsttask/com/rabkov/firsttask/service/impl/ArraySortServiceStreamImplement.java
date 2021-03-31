@@ -31,6 +31,7 @@ public class ArraySortServiceStreamImplement implements ArraySortService {
 
     @Override
     public ArrayEntity insertionSort(ArrayEntity entity) throws ArrayException {
+        validator.validate(entity);
         int[] array = Arrays.stream(entity.getArray())
                 .sorted().toArray();
         return new ArrayEntity(array);
