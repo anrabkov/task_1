@@ -10,11 +10,11 @@ import org.apache.logging.log4j.Logger;
 public class ArraySortServiceImplement implements ArraySortService {
 
     private static final ArrayValidator validator = new ArrayValidator();
-    Logger logger = LogManager.getLogger(ArraySortServiceImplement.class);
+    static Logger logger = LogManager.getLogger(ArraySortServiceImplement.class);
 
     @Override
     public ArrayEntity bubbleSort(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - 1; j++) {
@@ -32,7 +32,7 @@ public class ArraySortServiceImplement implements ArraySortService {
 
     @Override
     public ArrayEntity insertionSort(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         for (int i = 1; i < array.length; i++) {
             int value = array[i];
@@ -44,18 +44,16 @@ public class ArraySortServiceImplement implements ArraySortService {
             array[position + 1] = value;
         }
         logger.info("Array has sorted by insertionSort successfully");
-
         return new ArrayEntity(array);
     }
 
 
     @Override
     public ArrayEntity mergeSort(ArrayEntity entity) throws ArrayException {
-
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] arrayToSort = entity.getArray();
         mergeSort(arrayToSort, arrayToSort.length);
-        logger.info("Array has sorted by merge sort");
+        logger.info("Array has sorted by merge sort successfully");
         return new ArrayEntity(arrayToSort);
     }
 

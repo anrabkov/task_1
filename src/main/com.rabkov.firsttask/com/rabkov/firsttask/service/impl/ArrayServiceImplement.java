@@ -15,7 +15,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public int searchMinElementOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         int min = array[0];
         for (int i = 0; i < array.length; i++) {
@@ -30,7 +30,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public int searchMaxElementOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
@@ -44,7 +44,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public long searchSumOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         long sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -56,7 +56,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public double searchAverageValueOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         long sum = 0;
         for (int i = 0; i < array.length; i++) {
@@ -69,7 +69,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public int searchQuantityPositiveNumbersOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         int quantity = 0;
         for (int i = 0; i < array.length; i++) {
@@ -83,7 +83,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public int searchQuantityNegativeNumbersOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         int quantity = 0;
         for (int i = 0; i < array.length; i++) {
@@ -97,7 +97,7 @@ public class ArrayServiceImplement implements ArrayService {
 
     @Override
     public ArrayEntity changeElementsOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = entity.getArray();
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 0) {

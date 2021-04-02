@@ -5,21 +5,18 @@ import com.rabkov.firsttask.exception.ArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ArrayValidator {
 
+public class ArrayValidator {
     static Logger logger = LogManager.getLogger(ArrayValidator.class);
 
-    public boolean validate(ArrayEntity entity) throws ArrayException {
-        int[] array = entity.getArray();
-        if ((entity != null || array != null) && array.length > 0) {
-            logger.info("The array was checked for null and for empty");
-            return true;
+    public boolean validateToNull(ArrayEntity entity) {
+        return entity == null || entity.getArray().length == 0;
+    }
+
+    public void validateToEmpty(ArrayEntity entity) throws ArrayException {
+        if (validateToNull(entity)) {
+            logger.error("Entity is empty.");
+            throw new ArrayException("Entity is empty");
         }
-        throw new ArrayException();
-//        } else {
-//            if (entity.getArray() == null) throw new ArrayException("Array is equal to null");
-//            if (array.length < 0) throw new ArrayException("Array is empty");
-//            if (entity == null) throw new ArrayException("ArrayEntity == null");
-//           throw new
     }
 }

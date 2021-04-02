@@ -1,6 +1,7 @@
 package test.rabkov.firsttask.readerTest;
 
-import com.rabkov.firsttask.exception.FileException;
+import com.rabkov.firsttask.exception.ArrayException;
+
 import org.junit.Test;
 import org.testng.Assert;
 import com.rabkov.firsttask.reader.ArrayReader;
@@ -17,26 +18,25 @@ public class ArrayReaderTest {
 
     @Test
     public void fileNullTest() {
-        Assert.assertThrows(FileException.class,
-                () -> reader.readFromFile(null));
+        Assert.assertThrows(ArrayException.class, () -> reader.readFromFile(null));
     }
 
     @Test
     public void fileNotFoundTest() {
-        Assert.assertThrows(FileException.class,
+        Assert.assertThrows(ArrayException.class,
                 () -> reader.readFromFile("FileIsAbsent"));
     }
 
 
     @Test
     public void emptyFileTest() {
-        Assert.assertThrows(FileException.class,
+        Assert.assertThrows(ArrayException.class,
                 () -> reader.readFromFile("emptyFile"));
     }
 
 
     @Test
-    public void correctFileTest() throws FileException {
+    public void correctFileTest() throws ArrayException {
         List<String> expectedList = Arrays.asList("1 4 0 0", "14 47 -10 2");
 
         List<String> actualList = reader.readFromFile("correctFile");

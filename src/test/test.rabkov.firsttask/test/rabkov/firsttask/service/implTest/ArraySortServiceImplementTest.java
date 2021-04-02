@@ -8,6 +8,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.rabkov.firsttask.service.ArraySortService;
 
+import static org.testng.Assert.assertThrows;
+import static org.testng.Assert.expectThrows;
+
+
 public class ArraySortServiceImplementTest {
     private ArrayEntity entity;
     private ArraySortService service;
@@ -45,35 +49,35 @@ public class ArraySortServiceImplementTest {
 
     @Test
     void bubbleNullTest() {
-        Assert.assertThrows(ArrayException.class, () -> service.bubbleSort(new ArrayEntity(null)));
-
+        expectThrows(ArrayException.class, () -> service.bubbleSort(new ArrayEntity(null)));
     }
 
     @Test
-    void insertNullTest() {
-        Assert.assertThrows(ArrayException.class, () -> service.insertionSort(new ArrayEntity(null)));
+    void insertionSortNullTest() {
+        Assert.assertThrows(ArrayException.class, () -> service.insertionSort(null));
     }
+
 
     @Test
     void mergeNullTest() {
-        Assert.assertThrows(ArrayException.class, () -> service.mergeSort(new ArrayEntity(null)));
+        assertThrows(ArrayException.class, () -> service.mergeSort(new ArrayEntity(null)));
     }
 
 
     @Test
     void bubbleSortEmptyArrayTest() {
-        Assert.assertThrows(ArrayException.class, () -> service.bubbleSort(new ArrayEntity()));
+        assertThrows(ArrayException.class, () -> service.bubbleSort(new ArrayEntity()));
     }
 
     @Test
     void insertSortEmptyArrayTest() {
-        Assert.assertThrows(ArrayException.class, () -> service.insertionSort(new ArrayEntity()));
+        assertThrows(ArrayException.class, () -> service.insertionSort(new ArrayEntity()));
     }
 
 
     @Test
     void mergeSortEmptyArrayTest() {
-        Assert.assertThrows(ArrayException.class, () -> service.mergeSort(new ArrayEntity()));
+        assertThrows(ArrayException.class, () -> service.mergeSort(new ArrayEntity()));
     }
 
 

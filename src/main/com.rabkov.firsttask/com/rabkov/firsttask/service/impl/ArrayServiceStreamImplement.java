@@ -12,55 +12,59 @@ public class ArrayServiceStreamImplement extends ArrayServiceImplement {
 
     @Override
     public int searchMinElementOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
-        return Arrays.stream(entity.getArray())
+        validator.validateToEmpty(entity);
+        int min = Arrays.stream(entity.getArray())
                 .min()
                 .orElseThrow(ArrayException::new);
+        return min;
     }
 
     @Override
     public int searchMaxElementOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
-        return Arrays.stream(entity.getArray())
+        validator.validateToEmpty(entity);
+        int max = Arrays.stream(entity.getArray())
                 .max()
                 .orElseThrow(ArrayException::new);
+        return max;
     }
 
     @Override
     public long searchSumOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
-        return Arrays.stream(entity.getArray())
-                .sum();
+        validator.validateToEmpty(entity);
+        long sum = Arrays.stream(entity.getArray()).sum();
+        return sum;
     }
 
     @Override
     public double searchAverageValueOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
-        double average = Arrays.stream(entity.getArray()).
-                average().
-                orElseThrow(ArrayException::new);
+        validator.validateToEmpty(entity);
+        double average = Arrays.stream(entity.getArray())
+                .average()
+                .orElseThrow(ArrayException::new);
         return average;
     }
 
     @Override
     public int searchQuantityPositiveNumbersOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
-        return (int) Arrays.stream(entity.getArray())
+        validator.validateToEmpty(entity);
+        int quantity = (int) Arrays.stream(entity.getArray())
                 .filter(s -> s > 0)
                 .count();
+        return quantity;
     }
 
     @Override
     public int searchQuantityNegativeNumbersOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
-        return (int) Arrays.stream(entity.getArray())
+        validator.validateToEmpty(entity);
+        int quantity = (int) Arrays.stream(entity.getArray())
                 .filter(s -> s < 0)
                 .count();
+        return quantity;
     }
 
     @Override
     public ArrayEntity changeElementsOfArray(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = Arrays.stream(entity.getArray())
                 .filter(s -> s == 0)
                 .map(s -> s = 1)

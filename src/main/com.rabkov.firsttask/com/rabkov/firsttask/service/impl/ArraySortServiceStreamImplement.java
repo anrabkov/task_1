@@ -4,36 +4,42 @@ import com.rabkov.firsttask.entity.ArrayEntity;
 import com.rabkov.firsttask.exception.ArrayException;
 import com.rabkov.firsttask.service.ArraySortService;
 import com.rabkov.firsttask.validator.ArrayValidator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
-import static java.util.Arrays.stream;
 
 public class ArraySortServiceStreamImplement implements ArraySortService {
 
-    ArrayValidator validator;
+    private static final ArrayValidator validator = new ArrayValidator();
+    static Logger logger = LogManager.getLogger(ArraySortServiceStreamImplement.class);
+
 
     @Override
     public ArrayEntity bubbleSort(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = Arrays.stream(entity.getArray())
                 .sorted().toArray();
+        logger.info("Array has sorted by bubbleSort successfully");
         return new ArrayEntity(array);
     }
 
     @Override
     public ArrayEntity mergeSort(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = Arrays.stream(entity.getArray())
                 .sorted().toArray();
+        logger.info("Array has sorted by mergeSort successfully");
         return new ArrayEntity(array);
     }
 
     @Override
     public ArrayEntity insertionSort(ArrayEntity entity) throws ArrayException {
-        validator.validate(entity);
+        validator.validateToEmpty(entity);
         int[] array = Arrays.stream(entity.getArray())
                 .sorted().toArray();
+        logger.info("Array has sorted by merge sort successfully");
         return new ArrayEntity(array);
     }
 }
