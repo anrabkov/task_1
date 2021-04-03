@@ -1,18 +1,15 @@
-package com.rabkov.firsttask.stringParser;
+package com.rabkov.firsttask.parser;
 
 
-import com.rabkov.firsttask.validator.fileValidator.RegexValidator;
-
-
+import com.rabkov.firsttask.exception.ArrayException;
 
 public class StringParser {
-
-    private static final RegexValidator regexValidator = new RegexValidator();
     private final static String SPACE_REGEX = "\\s+";
 
-
-    public int[] parse(String string) {
-
+    public int[] parse(String string) throws ArrayException {
+        if (string == null) {
+            throw new ArrayException("Parsing line impossible, because line equal to null");
+        }
         String[] stringArray = string.split(SPACE_REGEX);
         int[] intArray = new int[stringArray.length];
 

@@ -4,7 +4,7 @@ import com.rabkov.firsttask.exception.ArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
-import com.rabkov.firsttask.stringParser.StringParser;
+import com.rabkov.firsttask.parser.StringParser;
 import org.testng.Assert;
 
 
@@ -23,6 +23,12 @@ public class ArrayParserTest {
         int[] actualArray = stringParser.parse(stringForParsing);
 
         Assert.assertEquals(actualArray, expectedArray);
+    }
+
+    @Test
+    public void StringToNullTest() {
+
+        Assert.assertThrows(ArrayException.class, () -> stringParser.parse(null));
     }
 
 

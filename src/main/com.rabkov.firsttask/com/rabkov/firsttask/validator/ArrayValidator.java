@@ -15,8 +15,8 @@ public class ArrayValidator {
 
     public void validateToEmpty(ArrayEntity entity) throws ArrayException {
         if (validateToNull(entity)) {
-            logger.error("Entity is empty.");
-            throw new ArrayException("Entity is empty");
+            logger.error("Entity is equal to null or array is empty");
+            throw new ArrayException("Entity is equal to null or array is empty");
         }
     }
 }

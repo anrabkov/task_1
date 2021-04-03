@@ -2,17 +2,17 @@ package test.rabkov.firsttask.service.implTest;
 
 import com.rabkov.firsttask.entity.ArrayEntity;
 import com.rabkov.firsttask.exception.ArrayException;
+import com.rabkov.firsttask.service.ArraySortService;
 import com.rabkov.firsttask.service.impl.ArraySortServiceImplement;
+import com.rabkov.firsttask.service.impl.ArraySortServiceStreamImplement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.rabkov.firsttask.service.ArraySortService;
 
 import static org.testng.Assert.assertThrows;
-import static org.testng.Assert.expectThrows;
 
-
-public class ArraySortServiceImplementTest {
+public class ArraySortServiceStreamImplementTest {
     private ArrayEntity entity;
     private ArraySortService service;
 

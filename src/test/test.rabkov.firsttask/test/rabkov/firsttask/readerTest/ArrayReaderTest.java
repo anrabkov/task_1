@@ -24,22 +24,22 @@ public class ArrayReaderTest {
     @Test
     public void fileNotFoundTest() {
         Assert.assertThrows(ArrayException.class,
-                () -> reader.readFromFile("FileIsAbsent"));
+                () -> reader.readFromFile("FileIsAbsent.txt"));
     }
 
 
     @Test
     public void emptyFileTest() {
         Assert.assertThrows(ArrayException.class,
-                () -> reader.readFromFile("emptyFile"));
+                () -> reader.readFromFile("C:\\Users\\Семья\\IdeaProjects\\firsttask\\src\\main\\resources\\files\\emptyFile.txt"));
     }
 
 
     @Test
     public void correctFileTest() throws ArrayException {
-        List<String> expectedList = Arrays.asList("1 4 0 0", "14 47 -10 2");
+        List<String> expectedList = Arrays.asList("1 4 0 0", "g 15 50 47", "14 47 -10 -2");
 
-        List<String> actualList = reader.readFromFile("correctFile");
+        List<String> actualList = reader.readFromFile("C:\\Users\\Семья\\IdeaProjects\\firsttask\\src\\main\\resources\\files\\correctFile.txt");
         Assert.assertEquals(actualList, expectedList);
     }
 }

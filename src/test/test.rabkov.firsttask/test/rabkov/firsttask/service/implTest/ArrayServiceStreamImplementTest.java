@@ -2,13 +2,13 @@ package test.rabkov.firsttask.service.implTest;
 
 import com.rabkov.firsttask.entity.ArrayEntity;
 import com.rabkov.firsttask.exception.ArrayException;
+import com.rabkov.firsttask.service.ArrayService;
 import com.rabkov.firsttask.service.impl.ArrayServiceImplement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.rabkov.firsttask.service.ArrayService;
 
-public class ArrayServiceImplementTest {
+public class ArrayServiceStreamImplementTest {
     private ArrayEntity entity;
     private ArrayService service;
 
