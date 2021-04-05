@@ -1,6 +1,5 @@
 package com.rabkov.firsttask.validator.fileValidator;
 
-
 import java.util.regex.Pattern;
 
 public class RegexValidator {

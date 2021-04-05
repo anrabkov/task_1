@@ -17,6 +17,10 @@ public class FileNameValidator {
             logger.info("The path equal to null");
             return false;
         }
+        if (path.isBlank()) {
+            logger.info("The name of the path is empty");
+            return false;
+        }
         File file = new File(path);
         return file.exists() && file.length() > 0;
     }

@@ -33,4 +33,10 @@ public class FileNameValidatorTest {
         Assert.assertTrue(validator.validateFile("C:\\Users\\Семья\\IdeaProjects\\firsttask\\src\\main\\resources\\files\\correctFile.txt"));
     }
 
+    @Test
+    public void pathIsEmpty() throws ArrayException {
+        Assert.assertFalse(validator.validateFile(""));
+    }
+
+
 }

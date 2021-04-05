@@ -6,14 +6,10 @@ import org.junit.Test;
 import org.testng.Assert;
 import com.rabkov.firsttask.reader.ArrayReader;
 
-
 import java.util.Arrays;
 import java.util.List;
 
-
-
 public class ArrayReaderTest {
-
     private final ArrayReader reader = new ArrayReader();
 
     @Test
@@ -42,5 +38,7 @@ public class ArrayReaderTest {
         List<String> actualList = reader.readFromFile("C:\\Users\\Семья\\IdeaProjects\\firsttask\\src\\main\\resources\\files\\correctFile.txt");
         Assert.assertEquals(actualList, expectedList);
     }
+
+
 }
 

@@ -7,8 +7,8 @@ public class StringParser {
     private final static String SPACE_REGEX = "\\s+";
 
     public int[] parse(String string) throws ArrayException {
-        if (string == null) {
-            throw new ArrayException("Parsing line impossible, because line equal to null");
+        if (string == null || string.isBlank()) {
+            throw new ArrayException("Parsing line impossible");
         }
         String[] stringArray = string.split(SPACE_REGEX);
         int[] intArray = new int[stringArray.length];
